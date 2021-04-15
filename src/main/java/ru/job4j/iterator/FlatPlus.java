@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FlatMapPlus {
+public class FlatPlus {
 
 //    private static class Func implements Function<List<Integer>, Stream<Integer>> {
 //        @Override
