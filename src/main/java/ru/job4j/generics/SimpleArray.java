@@ -1,8 +1,9 @@
 package ru.job4j.generics;
 
+import java.util.Iterator;
 import java.util.Objects;
 
-public class SimpleArray<T> {
+public class SimpleArray<T> implements Iterable<T> {
     private final T[] data;
     private int length = 0;
 
@@ -24,12 +25,29 @@ public class SimpleArray<T> {
 
     public void remove(int index) {
         Objects.checkIndex(0, length);
-        System.arraycopy(data, index + 1, data, index, length - index - 1);
+        System.arraycopy(data, index + 1, data, index, --length - index);
     }
 
     public T get(int index) {
         Objects.checkIndex(0, length);
         return data[index];
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < length;
+            }
+
+            @Override
+            public T next() {
+                return data[currentIndex++];
+            }
+        };
     }
 
     public static void main(String[] args) {
@@ -51,6 +69,10 @@ public class SimpleArray<T> {
 
         for (int i = 0; i < 5; i++) {
             System.out.println(dataI.get(i) + " -> " + dataS.get(i));
+        }
+
+        for (Iterator<String> it = dataS.iterator(); it.hasNext();) {
+            System.out.println(it.next());
         }
     }
 
