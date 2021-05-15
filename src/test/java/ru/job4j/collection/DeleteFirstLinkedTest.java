@@ -33,4 +33,16 @@ public class DeleteFirstLinkedTest {
         Iterator<Integer> it = linked.iterator();
         assertThat(it.next(), is(2));
     }
+
+    @Test
+    public void whenAddFirstThenIt() {
+        ForwardLinked<Integer> linked = new ForwardLinked<>();
+        linked.add(1);
+        linked.add(2);
+        linked.addFirst(3);
+        Iterator<Integer> it = linked.iterator();
+        assertThat(it.next(), is(3));
+        assertThat(it.next(), is(1));
+        assertThat(it.next(), is(2));
+    }
 }
