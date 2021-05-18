@@ -32,9 +32,26 @@ public class ForwardLinkedTest {
     }
 
     @Test
+    public void whenAddAndRevert1ThenIt() {
+        ForwardLinked<Integer> linked = new ForwardLinked<>();
+        linked.add(1);
+        linked.add(2);
+        linked.revert1();
+        Iterator<Integer> it = linked.iterator();
+        assertThat(it.next(), is(2));
+        assertThat(it.next(), is(1));
+    }
+
+    @Test
     public void whenSize0ThenReturnFalse() {
         ForwardLinked<Integer> emptyList = new ForwardLinked<>();
         assertFalse(emptyList.revert());
+    }
+
+    @Test
+    public void whenSize0ThenReturn1False() {
+        ForwardLinked<Integer> emptyList = new ForwardLinked<>();
+        assertFalse(emptyList.revert1());
     }
 
     @Test
@@ -42,5 +59,12 @@ public class ForwardLinkedTest {
         ForwardLinked<Integer> singleList = new ForwardLinked<>();
         singleList.add(1);
         assertFalse(singleList.revert());
+    }
+
+    @Test
+    public void whenSize1ThenReturn1False() {
+        ForwardLinked<Integer> singleList = new ForwardLinked<>();
+        singleList.add(1);
+        assertFalse(singleList.revert1());
     }
 }

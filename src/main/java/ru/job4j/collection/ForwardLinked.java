@@ -50,6 +50,17 @@ public class ForwardLinked<T> implements Iterable<T> {
         return true;
     }
 
+    public boolean revert1() {
+        if (head == null || head.next == null) {
+            return false;
+        }
+        ForwardLinked<T> newLink = new ForwardLinked<>();
+        while (head != null) {
+            newLink.addFirst(this.deleteFirst());
+        }
+        head = newLink.head;
+        return true;
+    }
 
     @Override
     public Iterator<T> iterator() {
