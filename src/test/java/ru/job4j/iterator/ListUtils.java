@@ -21,13 +21,12 @@ public class ListUtils {
         Objects.checkIndex(index, list.size());
         ListIterator<T> i = list.listIterator();
         while (i.hasNext()) {
-            i.next();
-        }
-        while (i.hasPrevious()) {
-            if (i.previousIndex() == index) {
+            if (i.nextIndex() == index) {
+                i.next();
                 i.add(value);
-                break;
+                return;
             }
+            i.next();
         }
     }
 
