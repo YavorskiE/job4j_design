@@ -1,7 +1,5 @@
 package ru.job4j.generics;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.lang.reflect.ParameterizedType;
 import java.util.*;
 

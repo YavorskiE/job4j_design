@@ -2,6 +2,6 @@ package ru.job4j;
 
 public class Trigger {
     public int someLogic() {
-        return 3;
+        return 4;
     }
 }
