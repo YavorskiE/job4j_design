@@ -7,6 +7,6 @@ public class TriggerTest {
 
     @Test
     public void test() {
-        Assert.assertEquals(6, new Trigger().someLogic());
+        Assert.assertEquals(7, new Trigger().someLogic());
     }
 }
